@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "course_id": "js-trail-core",
+  "version": "1.1.1",
+  "language": "ru",
+  "progression": "evidence_based",
+  "lessons": [
+    {
+      "lesson_id": "js-01",
+      "title": "Выражения, значения, имена",
+      "status": "prepared",
+      "prerequisites": [],
+      "revision": "1.0.0",
+      "lesson_path": "content/lessons/js-01/lesson.md",
+      "exercises_path": "content/lessons/js-01/exercises.json"
+    },
+    {
+      "lesson_id": "js-02",
+      "title": "Примитивы и typeof",
+      "status": "planned",
+      "prerequisites": [
+        "js-01"
+      ]
+    },
+    {
+      "lesson_id": "js-03",
+      "title": "Преобразования и равенство",
+      "status": "planned",
+      "prerequisites": [
+        "js-02"
+      ]
+    },
+    {
+      "lesson_id": "js-04",
+      "title": "Ветвления и короткое замыкание",
+      "status": "planned",
+      "prerequisites": [
+        "js-03"
+      ]
+    },
+    {
+      "lesson_id": "js-05",
+      "title": "Циклы и инвариант",
+      "status": "planned",
+      "prerequisites": [
+        "js-04"
+      ]
+    },
+    {
+      "lesson_id": "js-06",
+      "title": "Функции, параметры, return, стек",
+      "status": "planned",
+      "prerequisites": [
+        "js-05"
+      ]
+    },
+    {
+      "lesson_id": "js-07",
+      "title": "Область видимости, hoisting, TDZ",
+      "status": "planned",
+      "prerequisites": [
+        "js-06"
+      ]
+    },
+    {
+      "lesson_id": "js-08",
+      "title": "Объекты, массивы, копирование",
+      "status": "planned",
+      "prerequisites": [
+        "js-07"
+      ]
+    },
+    {
+      "lesson_id": "js-09",
+      "title": "Замыкания, счётчик, runOnce",
+      "status": "planned",
+      "prerequisites": [
+        "js-08"
+      ]
+    },
+    {
+      "lesson_id": "js-10",
+      "title": "this, call, bind, стрелки",
+      "status": "planned",
+      "prerequisites": [
+        "js-09"
+      ]
+    },
+    {
+      "lesson_id": "js-11",
+      "title": "Прототипная цепочка",
+      "status": "planned",
+      "prerequisites": [
+        "js-10"
+      ]
+    },
+    {
+      "lesson_id": "js-12",
+      "title": "Классы и new",
+      "status": "planned",
+      "prerequisites": [
+        "js-11"
+      ]
+    },
+    {
+      "lesson_id": "js-13",
+      "title": "Map, Set, Big O, Two Sum",
+      "status": "planned",
+      "prerequisites": [
+        "js-12"
+      ]
+    },
+    {
+      "lesson_id": "js-14",
+      "title": "Event Loop, Promise, microtasks",
+      "status": "planned",
+      "prerequisites": [
+        "js-13"
+      ]
+    },
+    {
+      "lesson_id": "js-15",
+      "title": "async/await и Promise-цепочки",
+      "status": "planned",
+      "prerequisites": [
+        "js-14"
+      ]
+    },
+    {
+      "lesson_id": "js-16",
+      "title": "HTML, DOM, события, формы",
+      "status": "planned",
+      "prerequisites": [
+        "js-15"
+      ]
+    },
+    {
+      "lesson_id": "js-17",
+      "title": "CSS, каскад и раскладка",
+      "status": "planned",
+      "prerequisites": [
+        "js-16"
+      ]
+    },
+    {
+      "lesson_id": "js-18",
+      "title": "Два указателя и бинарный поиск",
+      "status": "planned",
+      "prerequisites": [
+        "js-17"
+      ]
+    },
+    {
+      "lesson_id": "js-19",
+      "title": "Скользящее окно",
+      "status": "planned",
+      "prerequisites": [
+        "js-18"
+      ]
+    },
+    {
+      "lesson_id": "js-20",
+      "title": "Рекурсия, дерево и стек",
+      "status": "planned",
+      "prerequisites": [
+        "js-19"
+      ]
+    },
+    {
+      "lesson_id": "js-21",
+      "title": "DP по готовности",
+      "status": "planned",
+      "prerequisites": [
+        "js-20"
+      ]
+    },
+    {
+      "lesson_id": "js-22",
+      "title": "Пробное интервью JS",
+      "status": "planned",
+      "prerequisites": [
+        "js-21"
+      ]
+    },
+    {
+      "lesson_id": "js-23",
+      "title": "Алгоритмическая и интерфейсная проверка",
+      "status": "planned",
+      "prerequisites": [
+        "js-22"
+      ]
+    }
+  ]
+}

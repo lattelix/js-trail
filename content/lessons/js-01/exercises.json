@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "lesson_id": "js-01",
+  "revision": "1.0.0",
+  "environment": {
+    "runtime": "Node.js",
+    "tested_runtime": "v24.19.0",
+    "source_type": "script",
+    "strict": true
+  },
+  "tasks": [
+    {
+      "task_id": "js-01-a",
+      "kind": "trace",
+      "required": true,
+      "prompt": "Предскажи вывод каждого варианта до запуска, запиши значения после строк и объясни, пересчитывается ли bonus автоматически.",
+      "constraints": {
+        "values": "целые числа в данном фрагменте",
+        "mutation": "только переназначение числовых переменных",
+        "allowed": [
+          "let",
+          "=",
+          "+",
+          "console.log"
+        ]
+      },
+      "answer_format": [
+        "prediction",
+        "trace",
+        "explanation",
+        "actual_output",
+        "hints_used"
+      ],
+      "starter_code": "\"use strict\";\nlet score = 6;\nlet bonus = score + 2;\nscore = 1;\nconsole.log(score, bonus);\n",
+      "checks": [
+        {
+          "id": "original",
+          "change": "без изменений",
+          "expected_stdout": "1 8"
+        },
+        {
+          "id": "zero",
+          "change": "заменить score = 1 на score = 0",
+          "expected_stdout": "0 8"
+        },
+        {
+          "id": "recompute",
+          "change": "в исходном коде перед выводом добавить bonus = score + 2",
+          "expected_stdout": "1 3"
+        }
+      ],
+      "feedback_visibility": "after_attempt_or_explicit_request",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Рассматривай каждую строку отдельно."
+        },
+        {
+          "level": 2,
+          "text": "При чтении имени берётся его текущее значение; старое выражение не пересчитывается само."
+        },
+        {
+          "level": 3,
+          "text": "Сделай таблицу: строка, score, bonus. Заполняй сверху вниз."
+        }
+      ],
+      "rubric": [
+        "выводы для трёх вариантов",
+        "механизм вычисления",
+        "нулевой вариант",
+        "указана помощь",
+        "ясная трассировка"
+      ]
+    },
+    {
+      "task_id": "js-01-b",
+      "kind": "code",
+      "required": false,
+      "prompt": "Создай totalMinutes из hours и minutes; исходные переменные не меняй.",
+      "constraints": {
+        "hours": "целое 0..24",
+        "minutes": "целое 0..59",
+        "mutation": "входные переменные не менять",
+        "allowed": [
+          "let",
+          "=",
+          "*",
+          "+",
+          "console.log"
+        ],
+        "disallowed": [
+          "functions"
+        ]
+      },
+      "answer_format": [
+        "code",
+        "explanation",
+        "actual_output",
+        "hints_used"
+      ],
+      "starter_code": "\"use strict\";\nlet hours = 2;\nlet minutes = 15;\n// Создай totalMinutes и выведи его.\n",
+      "checks": [
+        {
+          "input": {
+            "hours": 2,
+            "minutes": 15
+          },
+          "expected": 135
+        },
+        {
+          "input": {
+            "hours": 0,
+            "minutes": 0
+          },
+          "expected": 0
+        },
+        {
+          "input": {
+            "hours": 1,
+            "minutes": 59
+          },
+          "expected": 119
+        }
+      ],
+      "feedback_visibility": "examples_public_solution_after_attempt",
+      "hints": [
+        {
+          "level": 1,
+          "text": "В каком виде даны часы, а в каком нужен результат?"
+        },
+        {
+          "level": 2,
+          "text": "Один час содержит 60 минут."
+        },
+        {
+          "level": 3,
+          "text": "Переведи часы в минуты, затем добавь оставшиеся минуты."
+        }
+      ],
+      "rubric": [
+        "три результата",
+        "объяснение перевода единиц",
+        "нулевая длительность",
+        "указана помощь",
+        "простое выражение"
+      ]
+    }
+  ]
+}
