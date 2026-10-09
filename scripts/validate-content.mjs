@@ -26,6 +26,23 @@ for (const lesson of course.lessons) {
     assert.equal(task.rubric.length, 5);
     assert.deepEqual(task.hints.map(h => h.level), [1, 2, 3]);
   }
+  for (const reinforcement of lesson.reinforcements ?? []) {
+    assert.equal(reinforcement.status, 'prepared');
+    const reinforcementBody = await read(reinforcement.lesson_path);
+    const reinforcementExercises = JSON.parse(await read(reinforcement.exercises_path));
+    assert.ok(reinforcementBody.includes('reinforcement_id: ' + reinforcement.reinforcement_id));
+    assert.ok(reinforcementBody.includes('version: ' + reinforcement.revision));
+    assert.equal(reinforcementExercises.reinforcement_id, reinforcement.reinforcement_id);
+    assert.equal(reinforcementExercises.revision, reinforcement.revision);
+    assert.equal(new Set(reinforcementExercises.tasks.map(t => t.task_id)).size, reinforcementExercises.tasks.length);
+    for (const task of reinforcementExercises.tasks) {
+      for (const key of ['task_id', 'kind', 'required', 'prompt', 'constraints', 'answer_format', 'starter_code', 'checks', 'feedback_visibility', 'hints', 'rubric']) assert.ok(key in task);
+      assert.ok(task.checks.length >= 2 && task.checks.length <= 3);
+      assert.equal(task.rubric.length, 5);
+      assert.deepEqual(task.hints.map(h => h.level), [1, 2, 3]);
+    }
+  }
 }
 await import('../content/lessons/js-01/checks.mjs');
+await import('../content/lessons/js-01/reinforcements/js-01-r1/checks.mjs');
 console.log('Catalog and prepared content structure passed.');

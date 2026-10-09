@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "lesson_id": "js-01",
+  "reinforcement_id": "js-01-r1",
+  "revision": "1.0.0",
+  "environment": {
+    "runtime": "Node.js",
+    "tested_runtime": "v24.19.0",
+    "source_type": "script",
+    "strict": true
+  },
+  "tasks": [
+    {
+      "task_id": "js-01-r1-a",
+      "kind": "trace_and_repair",
+      "required": true,
+      "prompt": "Предскажи исходный вывод, проследи значения и исправь порядок так, чтобы вывести запас до и после продажи.",
+      "constraints": {
+        "stock": "целое 0..100",
+        "sold": "целое 0..100 и sold <= stock",
+        "mutation": "только переназначение числовой переменной",
+        "allowed": ["let", "=", "-", "console.log", "одна дополнительная переменная"]
+      },
+      "answer_format": ["prediction", "trace", "corrected_code", "actual_outputs", "explanation", "hints_used"],
+      "starter_code": "\"use strict\";\nlet stock = 10;\nlet sold = 4;\nstock = stock - sold;\nlet stockBeforeSale = stock;\nconsole.log(stockBeforeSale, stock);\n",
+      "checks": [
+        {"input": {"stock": 10, "sold": 4}, "expected_stdout": "10 6"},
+        {"input": {"stock": 0, "sold": 0}, "expected_stdout": "0 0"},
+        {"input": {"stock": 5, "sold": 5}, "expected_stdout": "5 0"}
+      ],
+      "feedback_visibility": "after_attempt_or_explicit_request",
+      "hints": [
+        {"level": 1, "text": "Найди строку, после которой исходного значения stock уже нет в этой переменной."},
+        {"level": 2, "text": "Сохранять прежнее значение нужно раньше инструкции, которая заменяет его."},
+        {"level": 3, "text": "Сначала создай снимок stock под другим именем, затем уменьши stock."}
+      ],
+      "rubric": ["корректный прогноз", "правильный порядок", "три проверки", "объяснение правила", "указана помощь"]
+    },
+    {
+      "task_id": "js-01-r1-b",
+      "kind": "code",
+      "required": false,
+      "prompt": "Выведи остаток после первой и после второй покупки, последовательно меняя balance.",
+      "constraints": {
+        "values": "неотрицательные целые; сумма покупок не больше balance",
+        "mutation": "balance разрешено переназначать",
+        "allowed": ["let", "=", "-", "console.log"],
+        "disallowed": ["functions"]
+      },
+      "answer_format": ["prediction", "code", "actual_outputs", "explanation", "hints_used"],
+      "starter_code": "\"use strict\";\nlet balance = 1000;\nlet firstPurchase = 250;\nlet secondPurchase = 150;\n",
+      "checks": [
+        {"input": {"balance": 1000, "firstPurchase": 250, "secondPurchase": 150}, "expected_stdout": "750 600"},
+        {"input": {"balance": 0, "firstPurchase": 0, "secondPurchase": 0}, "expected_stdout": "0 0"},
+        {"input": {"balance": 500, "firstPurchase": 500, "secondPurchase": 0}, "expected_stdout": "0 0"}
+      ],
+      "feedback_visibility": "after_attempt_or_explicit_request",
+      "hints": [
+        {"level": 1, "text": "Выполняй покупки в том же порядке, что и в условии."},
+        {"level": 2, "text": "После каждого вычитания сохрани или выведи текущий остаток."},
+        {"level": 3, "text": "Сначала вычти firstPurchase, затем зафиксируй результат; потом вычти secondPurchase."}
+      ],
+      "rubric": ["два корректных остатка", "порядок операций", "три проверки", "объяснение", "указана помощь"]
+    }
+  ]
+}

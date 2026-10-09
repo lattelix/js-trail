@@ -12,7 +12,16 @@
       "prerequisites": [],
       "revision": "1.0.0",
       "lesson_path": "content/lessons/js-01/lesson.md",
-      "exercises_path": "content/lessons/js-01/exercises.json"
+      "exercises_path": "content/lessons/js-01/exercises.json",
+      "reinforcements": [
+        {
+          "reinforcement_id": "js-01-r1",
+          "revision": "1.0.0",
+          "status": "prepared",
+          "lesson_path": "content/lessons/js-01/reinforcements/js-01-r1/lesson.md",
+          "exercises_path": "content/lessons/js-01/reinforcements/js-01-r1/exercises.json"
+        }
+      ]
     },
     {
       "lesson_id": "js-02",
